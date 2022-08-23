@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//home pubblica
+Route::get('/', 'HomeController@index')->name('home');
+//home con autenticazione
+Route::get('/admin', 'Admin\HomeController@index')->name('admin.index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource ("posts", "PostController");
